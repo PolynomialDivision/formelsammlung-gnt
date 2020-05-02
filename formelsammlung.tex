@@ -799,9 +799,60 @@
 	\end{equation}
 	\textbf{Wiener-Hopf-Bedingung}
 	\begin{equation} \textstyle
-		R_{XY}(k) = R_{YZ_{opt}}(k); k \in I
+		R_{YY}(k) = R_{YZ_{opt}}(k); k \in I
 	\end{equation}
 	\begin{equation} \textstyle
 		E\left[ \left\{ X(n) - Z_{opt}(n) \right\} Z_{opt}(n) \right] = 0
+	\end{equation}
+	\textbf{Wiener-Hopf-Gleichung}
+	\begin{equation} \textstyle
+		R_{YX}(j) = \sum_{k \in I} h_{k,opt} R_{YY}(j-k); j \in I
+	\end{equation}
+	... S. 87
+	\subsection{Ergebnisse für verschiedene Filterklassen}
+	\textbf{Endliches Kausales Filter}
+	\begin{equation} \textstyle
+		R_{YX}(j) = \sum_{k=0}^{N} h_{k,opt} R_{YY}(j-k)
+	\end{equation}
+	\begin{equation} \textstyle
+		\begin{bmatrix}
+		R_{YY}(0) & R_{YY}(1) & ... & R_{YY}(N)\\
+		R_{YY}(1) & R_{YY}(0) & ... & R_{YY}(N-1)\\
+		.. & ... & ... & ... & ...\\
+		R_{YY}(N) & R_{YY}(N-1) & ... & R_{YY}(0)\\
+		\end{bmatrix}
+		\begin{bmatrix}
+		h_{0,opt} \\
+		h_{1,opt} \\
+		... \\
+		h_{N,opt} \\
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+		R_{YX}(0) \\
+		R_{YX}(1) \\
+		... \\
+		R_{YX}(N) \\
+		\end{bmatrix}
+	\end{equation}
+	\textbf{Endliches WK-Filter mit Verzögerung $I=[-M,N]$}
+	\begin{equation} \textstyle
+		R_{YX}(j) = \sum_{k=-M}^{N-M} h_{k,opt} R_{YY}(j-k)
+	\end{equation}
+	\textbf{Nichtkausales Filter $I=[-\infty,\infty]$}
+	\begin{equation} \textstyle
+		R_{YX}(j) = \sum_{k=-\infty}^{\infty} h_{k,opt} R_{YY}(j-k) = h_{j,opt} \ast R_{YY}(j)
+	\end{equation}
+	\textbf{Übertragunsfunktion Nichtkausales Filter}
+	\begin{equation} \textstyle
+		H_{opt}(j \Omega) = \frac{S_{YX}(j\Omega)}{S_{YY}(\Omega)}
+	\end{equation}
+	\textbf{Minimale Fehlervarianz Nichtkausales Filter}
+	\begin{equation} \textstyle
+		\min{\{\sigma_{R}^{2}\}} = \sigma_{X}^{2} - \frac{1}{2 \pi} \int_{-\pi}^{\pi} \frac{|S_{YX}|^{2}}{S_{YY}(\Omega)} d\Omega
+	\end{equation}
+	\textbf{Additive Rauschstörung: $S_{XX}(\Omega) = S_{XX}(\Omega) + S_{NN}(\Omega)$}
+	\begin{equation} \textstyle
+		H_{opt}(j\Omega) = \frac{S_{XX}(\Omega)}{S_{XX}(\Omega)+S_{NN}(\Omega)}
 	\end{equation}
 \end{document}
