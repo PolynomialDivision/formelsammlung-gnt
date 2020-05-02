@@ -631,5 +631,72 @@
 		\mathbf{R}_{XX} = E[\mathbf{X}\mathbf{X^{T}}]
 	\end{equation}
 	Nochmal überlegen ob Seite 56/57 mehr reingenommen werden soll...
-	
+	\subsection{Zweidimensionale Prozesse}
+	\textbf{Fouriertransformation}
+	\begin{equation} \textstyle
+		H(j\Omega_{h},j\Omega_{n}) := \sum_{m=0}^{N-1} \sum_{n=0}^{N-1} h(m,n) e^{-j(m\Omega_{h}+n\Omega_{v})}
+	\end{equation}
+	\begin{equation} \textstyle
+		X(m,n) = \frac{1}{4\pi^{2}} \int_{- \pi}^{\pi} H(j\Omega_{h},j\Omega_{n}) e^{j(m\Omega_{h}+m\Omega_{v})}d\Omega_{h} d\Omega_{v}
+	\end{equation}
+	Fourierkoeffizienten
+	\begin{equation} \textstyle
+		t(k,l) := \frac{1}{N} \sum_{m=0}^{N-1} \sum_{n=0}^{N-1} x(m,n)e^{-j2\pi(km+ln)/N}
+	\end{equation}
+	Synthesegleichung
+	\begin{equation} \textstyle
+		x(m,n) := \frac{1}{N} \sum_{k=0}^{N-1} \sum_{l=0}^{N-1} t(k,l)e^{j2\pi(km+ln)/N}
+	\Delta \Omega_{h} = \frac{2 \pi}{N}; \Delta \Omega_{v} = \frac{2 \pi}{N}
+	\end{equation}
+	\begin{equation} \textstyle
+		\Delta \Omega_{h} = \frac{2 \pi}{N}; \Delta \Omega_{v} = \frac{2 \pi}{N}
+	\end{equation}
+	...
+	\subsection{Zeitkontinuierliche stochastische Prozesse}
+	\textbf{AKF}
+	\begin{equation} \textstyle
+		R_{XX}(\tau) = E[X(t)X(t+\tau)] = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} \alpha \cdot \beta \cdot p_{X}(\alpha,\beta;\tau) d\alpha d\beta
+	\end{equation}
+	\textbf{KKF}
+	\begin{equation} \textstyle
+		R_{XY}(\tau) = E[X(t)Y(t+\tau)] = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} \alpha \cdot \beta \cdot p_{XY}(\alpha,\beta;\tau) d\alpha d\beta
+	\end{equation}
+	\textbf{Wiener-Kitching-Beziehung}
+	\begin{equation} \textstyle
+		S_{XX}(\omega) = \int_{- \infty}^{\infty} R_{XX}(\tau) e^{-j\omega \tau} d\tau
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{XX}(\tau) = \frac{1}{2\pi} \int_{- \infty}^{\infty} S_{XX}(\omega) e^{j\omega \tau} d\omega
+	\end{equation}
+	\textbf{Kreuz-LDS}
+	\begin{equation} \textstyle
+		S_{XY}(\omega) = \int_{- \infty}^{\infty} R_{XY}(\tau) e^{-j\omega \tau} d\tau
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{XY}(\tau) = \frac{1}{2\pi} \int_{- \infty}^{\infty} S_{XY}(\omega) e^{j\omega \tau} d\omega
+	\end{equation}
+	\textbf{Lieare Systeme}\\
+	\textbf{AKF}
+	\begin{equation} \textstyle
+		R_{YY}(\tau) = h(\tau) \ast h(- \tau) \ast R_{XX}(\tau)
+	\end{equation}
+	\textbf{KKF}
+	\begin{equation} \textstyle
+		R_{XY}(\tau) = R_{XX}(\tau) \ast h(\tau)
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{YX}(\tau) = R_{XX}(\tau) \ast h(- \tau)
+	\end{equation}
+	\textbf{LDS}
+	\begin{equation} \textstyle
+		S_{YY}(\omega) = S_{XX}(\omega)|H(j\omega)|^{2}
+	\end{equation}
+	\begin{equation} \textstyle
+		S_{XY}(j \omega) = S_{XX}(\omega)H(j\omega)
+	\end{equation}
+	\begin{equation} \textstyle
+		S_{YX}(j \omega) = S_{XX}(\omega)H^{*}(j\omega)
+	\end{equation}
+	Vielleicht weißes rauschen Seite 67\\
+	\textbf{Noch Seite 69/70}
 \end{document}
