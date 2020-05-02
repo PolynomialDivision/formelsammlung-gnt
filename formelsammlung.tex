@@ -428,8 +428,11 @@
 	\textbf{Autokorrelationsmatrix $R_{XX}$}
 	\begin{equation} \textstyle
 		\mathbf{R_{XX}} =
-		 \begin{bmatrix}
-		R_{XX}(0) & R_{XX}(1) & R_{XX}(2) & ... & R_{XX}(N-1)\\
+		 \begin{bmatrix}
+
+		R_{XX}(0) &
+ R_{XX}(1) & R_{XX}(2) & ... & R_{XX}(N-1)\\
+
 		R_{XX}(1) & R_{XX}(0) & R_{XX}(1) & ... & R_{XX}(N-2)\\
 		.. & ... & ... & ... & ...\\
 		R_{XX}(N-1) & R_{XX}(N-2) & R_{XX}(1) & ... & R_{XX}(0)\\
@@ -522,4 +525,111 @@
 	\begin{equation} \textstyle
 		\gamma_{X}^{2} = \frac{e^{\frac{1}{2\pi}\int_{-\infty}^{\infty}\ln S_{XX}(\Omega)d\Omega}}{\sigma_{X}^{2}}
 	\end{equation}
+	Mit $N$ Stützstellen im Abstand $\Delta = \frac{2\pi}{N}$:
+	\begin{equation} \textstyle
+		\gamma_{X}^{2} = \frac{\left[ \prod_{k=1}^{N} S_{XX}(k \Delta \Omega) \right]^{\frac{1}{N}}}{\frac{1}{N}\sum_{k=1}^{N}S_{XX}(k \Delta \Omega)}
+	\end{equation}
+	Bei endlichem N ist das Maß spektraler Konstanz durch das Verhältnis von geometrischen und arithmetischem Mittel der LDS-Stützstellen gegeben:
+	\begin{equation} \textstyle
+		\gamma_{X}^{2} = \frac{\text{Geometrisches Mittel der LDS-Stützstellen}}{\text{Arithmetisches Mittel der LDS-Stützstellen}}
+	\end{equation}
+	daher
+	\begin{equation} \textstyle
+		0 \leq \gamma_{X}^{2} \leq 1
+	\end{equation}
+	\textbf{Schätzung der Autokorrelationsfolge}
+	\begin{equation} \textstyle
+		\hat{R}_{XX}(k) = \frac{1}{N} \sum_{n=0}^{N-k-1} x(n) x(n+k); \hspace{0.5cm} k \geq 0
+	\end{equation}
+	\begin{equation} \textstyle
+		\hat{R}_{XY}(k) = \frac{1}{N} \sum_{n=0}^{N-k-1} x(n) y(n+k); \hspace{0.5cm} k \geq 0
+	\end{equation}
+	\textbf{Schätzung der Autokorrelationsfolge}
+	\begin{equation} \textstyle
+		\hat{S}_{XX}(k) = \frac{1}{N} |X(j\Omega)|^{2}
+	\end{equation}
+	\begin{equation} \textstyle
+		X(j\Omega) = \sum_{n=0}^{N-1} x(n)e^{-jn\Omega}
+	\end{equation}
+	\section{Lineare Systeme}
+	\begin{equation} \textstyle
+		h(n) \rightarrow H(j\Omega) = \sum_{- \infty}^{\infty} h(n) e^{-jn\Omega}
+	\end{equation}
+	\begin{equation} \textstyle
+		y(n) = x(n) \ast h(n) = \sum_{- \infty}^{\infty} h(k) x(n-k)
+	\end{equation}
+	\begin{equation} \textstyle
+		Y(j\Omega) = X(j\Omega) H(j\Omega)
+	\end{equation}
+	\textbf{Arithmetischer Mittelwert}
+	\begin{equation} \textstyle
+		\mu_{Y} = \mu_{X} \sum_{\forall k} h(k) = \mu_{X} H(0)
+	\end{equation}
+	\textbf{AKF}
+	\begin{equation} \textstyle
+		R_{YY}(k) = R_{XX}(k) \ast h(-k) \ast h(k) = R_{XX}(k) \ast R_{HH}(k)
+	\end{equation}
+	\textbf{Filter-AKF}
+	\begin{equation} \textstyle
+		R_{HH}(k) = h(k) \ast h(-k) = \sum_{\forall j} h(j) h(k+j)
+	\end{equation}
+	Ist $ \{ X(n) \}$ weißes Rauschen, so kann die Filter-AKF $R_{HH}(k)$ aus der Ausgangs - AKF bestimmt werden
+	\begin{equation} \textstyle
+		R_{HH}(k) = \frac{R_{YY}(k)}{\sigma_{X}^{2}}
+	\end{equation}
+	\textbf{KKF}
+	\begin{equation} \textstyle
+		R_{XY}(k) = R_{XX}(k) \ast h(k)
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{YX}(k) = R_{XX}(k) \ast h(-k)
+	\end{equation}
+	\textbf{LDS}
+	\begin{equation} \textstyle
+		S_{YY}(j\Omega) = S_{XX}(\Omega)|H(j\Omega)|^{2}
+	\end{equation}
+	\begin{equation} \textstyle
+		S_{XY}(j\Omega) = S_{XX}(\Omega) H(j\Omega)
+	\end{equation}
+	\begin{equation} \textstyle
+		S_{YX}(j\Omega) = S_{XX}(\Omega) H^{*}(j\Omega)
+	\end{equation}
+	Messung der Kreuzkorrelation mit weißem Rauschen $R_{XX}(k) = \sigma_{X}^{2} \delta(k)$
+	\begin{equation} \textstyle
+		R_{XY}(j\Omega) = \sigma_{X}^{2}\delta(k) \ast h(k) = \sigma_{X}^{2}h(k)
+	\end{equation}
+	\textbf{Filterung mit nichtrekursivem Filter}
+	\begin{equation} \textstyle
+		h(n) = \sum_{k=0}^{N-1} a_{k}\delta(n-k)
+	\end{equation}
+	\textbf{Filterung mit nichtrekursivem Filter}
+	\begin{equation} \textstyle
+		y(n) = \sum_{k=0}^{N-1} a_{k} x(n-k)
+	\end{equation}
+	Somit
+	\begin{equation} \textstyle
+		R_{YY} = E[Y(n)Y(n+k')] = \sum_{\alpha=0}^{N-1}\sum_{\beta=0}^{N-1} a_{\alpha} a_{\beta} R_{XX}( k + \alpha - \beta)
+	\end{equation}
+	Vektor
+	\begin{equation} \textstyle
+		\mathbf{x^{T}} = \{ x(n) \}; n=0,1,...,N
+	\end{equation}
+	\begin{equation} \textstyle
+	\mathbf{R}_{XX} = \{ R_{XX}(|k-l) \}; n=0,1,...,N-1
+	\end{equation}
+	\begin{equation} \textstyle
+	 \begin{bmatrix}
+		R_{XX}(0) &
+		R_{XX}(1) & R_{XX}(2) & ... & R_{XX}(N-1)\\
+		
+		R_{XX}(1) & R_{XX}(0) & R_{XX}(1) & ... & R_{XX}(N-2)\\
+		.. & ... & ... & ... & ...\\
+		R_{XX}(N-1) & R_{XX}(N-2) & R_{XX}(1) & ... & R_{XX}(0)\\
+	\end{bmatrix}
+	\end{equation}
+	\begin{equation} \textstyle
+		\mathbf{R}_{XX} = E[\mathbf{X}\mathbf{X^{T}}]
+	\end{equation}
+	Nochmal überlegen ob Seite 56/57 mehr reingenommen werden soll...
+	
 \end{document}
