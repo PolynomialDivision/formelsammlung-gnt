@@ -1,0 +1,293 @@
+\documentclass{article}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry} %Anpassung der Seitenränder
+%\pagestyle{headings}
+\begin{document}
+	\begin{center}\huge Formelsammlung DSAV\par\bigskip\large\today\end{center}%Dann eben nicht als Titel sondern manuell
+	\section{Ergebnismenge}
+	\begin{equation} \textstyle
+	\Omega = \{ \omega : \omega_{1}, \omega_{2}, ..., \omega_{K} \}
+	\end{equation}
+	\section{Zufallsvariablen}
+	\textbf{Zufallsvariablen}
+	\begin{equation} \textstyle
+	\Omega \overset{X}{\rightarrow}\mathbb{R}
+	\end{equation}
+	\begin{equation} \textstyle
+	\Omega = \{ X(\omega) : x_{1}, x_{2}, ..., x_{k} \}
+	\end{equation}
+	\section{Wahrscheinlichkeit}
+	\textbf{Klassicher Wahrscheinlichkeitsbegriff}
+	\begin{equation} \textstyle
+	P(A) ) = \frac{g}{N} = \frac{\text{Anzahl für das Eintreffen von A günstigen Fällen}}{\text{Anzahl aller gleichmöglichen Fälle}}
+	\end{equation}
+	\textbf{Versuchsreihen (relative Häufigkeit)}
+	\begin{equation} \textstyle
+		\lim_{M \rightarrow \infty} \frac{m(A)}{M} = \lim_{M \rightarrow \infty} h(A) = P(A)
+	\end{equation}
+	\textbf{Kolmogoroff-Axiome}
+	\begin{equation} \textstyle
+		P(A) :\geq 0
+	\end{equation}
+	\begin{equation} \textstyle
+		P(\Omega) := 1
+	\end{equation}
+	\begin{equation} \textstyle
+		P(A \cup B) := P(A) + P(B), \text{wenn } A \cap B = \emptyset
+	\end{equation}
+	\begin{equation} \textstyle
+		A \overset{P}{\rightarrow}[0,1]
+	\end{equation}
+	\begin{equation} \textstyle
+		A \overset{X}{\rightarrow}\mathbb{R}\overset{P}{\rightarrow}[0,1]
+	\end{equation}
+	\begin{equation} \textstyle
+		P_{k} = P(X = x_{k})
+	\end{equation}
+	\begin{equation} \textstyle
+		P(A) + P(\overline{A}) = 1
+	\end{equation}
+	\begin{equation} \textstyle
+		P(\emptyset) = 0
+	\end{equation}
+	\begin{equation} \textstyle
+		P(B) \geq P(A), \text{wenn } A \subseteq B
+	\end{equation}
+	\begin{equation} \textstyle
+		0 \leq P(A) \leq 1
+	\end{equation}
+	\begin{equation} \textstyle
+		P(A \cup B) = P(A) + P(B) - P(A \cap B)
+	\end{equation}
+	\textbf{Laplace-Experiment}
+	\begin{equation} \textstyle
+		P(\omega_{k}) = \frac{1}{K}; \forall k
+	\end{equation}
+	\textbf{Bedingte Wahrscheinlichkeit}
+	\begin{equation} \textstyle
+		P(B|A) = \frac{P(A \cap B)}{P(A)}; P(A)  > 0
+	\end{equation}
+	\begin{equation} \textstyle
+		P(A|B) = \frac{P(A \cap B)}{P(B)}; P(B)  > 0
+	\end{equation}
+	\begin{equation} \textstyle
+		P(B|A) \geq 0
+	\end{equation}
+	\begin{equation} \textstyle
+		P(B \cup C | A) = P(B|A) + P(C|A), \text{wenn } B \cap C = \emptyset
+	\end{equation}
+	\textbf{Bayes}
+	\begin{equation} \textstyle
+		P(B|A) = \frac{P(B)}{P(A)} P(A|B)
+	\end{equation}
+	\begin{equation} \textstyle
+		P(A|B) = \frac{P(A)}{P(B)} P(B|A)
+	\end{equation}
+	\begin{equation} \textstyle
+		P(B) = \sum_{k=1}^{N} P(A_{k}) \cdot P(B|A_{k})
+	\end{equation}
+	\textbf{Statische Unabhängigkeit}
+	\begin{equation} \textstyle
+		P(B|A) := P(B)
+	\end{equation}
+	\begin{equation} \textstyle
+		P(A \cap B) = P(A) \cdot P(B)
+	\end{equation}
+	\subsection{Verteilungsfuktions, Verteilungsdichtefunktion}
+	\textbf{Verteilungsfunktion}
+	\begin{equation} \textstyle
+		F_{X}(x) := P(\omega : X(\omega) \leq x) = P(X \leq x)
+	\end{equation}
+	\begin{equation} \textstyle
+		F_{X}(x) \geq 0
+	\end{equation}
+	\begin{equation} \textstyle
+		P(\omega : X(\omega) > x) = 1 - F_{X}(x)
+	\end{equation}
+	\begin{equation} \textstyle
+		P(- \infty) = 0;\hspace{0.5cm} F_{X}(\infty) = 1
+	\end{equation}
+	\begin{equation} \textstyle
+		F_{X}(b) - F_{X}(a) = P(a < X \leq b)
+	\end{equation}
+	\textbf{Verteilungsdichtefunktion}
+	\begin{equation} \textstyle
+	p_{X}(x) = \frac{dF_{X}(x)}{dx}
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{X}(x) = \frac{dF_{X}(x)}{dx}
+	\end{equation}
+	\begin{equation} \textstyle
+		P(a < X \leq b) = F_{X}(b) - F_{X}(a) = \int_{a}^{b} p_{X}(x)dx
+	\end{equation}
+	\begin{equation} \textstyle
+		P(- \infty < X \leq \infty) = \int_{- \infty}^{\infty} p_{X}(x)dx =1
+	\end{equation}
+	\begin{equation} \textstyle
+		\int_{a}^{a} p_{X}(x) dx = P\{X = a\} = 0
+	\end{equation}
+	\textbf{Normalverteilung $N(\mu_{X},\sigma_{X})$}
+	\begin{equation} \textstyle
+		F_{X}(x) = \frac{1}{2} \left[ 1 + \text{erf} \left( \frac{x - \mu_{X}}{\sigma_{X} \sqrt{2}} \right) \right]
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{X}(x) = \frac{1}{\sigma_{X} \sqrt{2 \pi}}  \exp  \left[ \frac{-(x - \mu_{X})^{2}}{2\sigma_{X}^{2}}\right]
+	\end{equation}
+	\textbf{Fehlerfunktion}
+	\begin{equation} \textstyle
+		\operatorname{erf}(x) = \frac 2{\sqrt\pi} \int_0^x e^{-t^2}\,\mathrm dt
+	\end{equation}
+	\subsection{Verbundverteilungen}
+	\begin{equation} \textstyle
+		F_{XY}(x,y) := P(X \leq x, y \leq Y)
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{XY}(x,y) := \frac{\delta^{2} F_{XY}(x,y)}{\delta x \delta y}
+	\end{equation}
+	\begin{equation} \textstyle
+		P(a < X \leq b, c < Y \leq d) = \int_{a}^{b} \int_{c}^{d} p_{XY}(x,y)dydx
+	\end{equation}
+	\begin{equation} \textstyle
+		\int_{- \infty}^{\infty} \int_{- \infty}^{\infty} p_{XY}(x,y)dydx = 1
+	\end{equation}
+	\begin{equation} \textstyle
+		P(a < X \leq b, c < Y \leq d) = F_{XY}(b,d) -  F_{XY}(a,d) -  F_{XY}(b,c) +  F_{XY}(a,c)
+	\end{equation}
+	\subsection{Randdichteverteilung}
+	\begin{equation} \textstyle
+		p_{X}(x) = \int_{- \infty}^{\infty} p_{XY}(x,y) dy
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{Y}(y) = \int_{- \infty}^{\infty} p_{XY}(x,y) dx
+	\end{equation}
+	\subsection{Bedingte Verteilungsdichtefunktion}
+	\begin{equation} \textstyle
+		p_{X}(x|Y=y) := \frac{p_{XY}(x,y)}{p_{Y}(y)}
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{Y}(y|X=x) := \frac{p_{XY}(x,y)}{p_{X}(x)}
+	\end{equation}
+	\textbf{Statistische Unabhängigkeit}
+	\begin{equation} \textstyle
+		p_{XY}(x,y) = p_{X}(x) \cdot p_{Y}(y)
+	\end{equation}
+	\subsection{Diskete Zufallsvariablen}
+	\begin{equation} \textstyle
+		F_{X}(x) = \sum_{k=1}^{N} P_{k}\sigma(x-x_{k}), \hspace{0.5cm}\text{wobei } \sigma(x)  \text{ Sprungfuntion}
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{X}(x) = \frac{dF_{X}(x)}{dx}
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{X}(x) = \sum_{k=1}^{N} P_{k}\delta(x-x_{k})
+	\end{equation}
+	\begin{equation} \textstyle
+		P(a < X \leq b) = F_{X}(b) - F_{X}(a) = \int_{a}^{b} p_{X}(x) dx
+	\end{equation}
+	\textbf{Bernoulli-Experiment}
+	\begin{equation} \textstyle
+		P_{i} = P(\text{genau i-faches Auftreten}) = B(n,p,i) = \binom{n}{i} \cdot p^{i} \cdot (1-p)^{n-i}
+	\end{equation}
+	Bei kleinen p-Warten und großen N kann Poission-Verteilung verwendet werden
+	\begin{equation} \textstyle
+		P_{i} \approx \frac{(np)^{i}}{i!} e^{-np}
+	\end{equation}
+	\begin{equation} \textstyle
+		P(\text{bis zu i-faches Auftreten}) = \sum_{j=0}^{i} B(n,p,j)
+	\end{equation}
+	\begin{equation} \textstyle
+		P(\text{mehr als i-faches Auftreten}) = 1 - \sum_{j=0}^{i} B(n,p,j)
+	\end{equation}
+	\begin{equation} \textstyle
+		\mu_{X} = np
+	\end{equation}
+	\begin{equation} \textstyle
+		\sigma_{x}^{2} = np(1-p)
+	\end{equation}
+	\begin{equation} \textstyle
+		P(A) = \sum_{k=1}^{N} P(A|B_{k}) P(B_{k}) 
+	\end{equation}
+	\textbf{FRAGE IM FORUM}
+	\begin{equation} \textstyle
+		P(A) = \sum_{k=1}^{N} P(A,B=B_{k})
+	\end{equation}
+	\subsection{Transformation}
+	\begin{equation} \textstyle
+		p_{Y}(y) = \frac{p_{X}(x)}{|g'(x)|}\Big|_{x=g^{-1}(y)}
+	\end{equation}
+	\begin{equation} \textstyle
+		P(Y \leq y_{0}) = P(X \leq x_{0})
+	\end{equation}
+	\begin{equation} \textstyle
+		\int_{- \infty}^{y_{0}} p_{y}(y) dy = \int_{- \infty}^{x_{0}=g^{-1}(y_{0})} p_{x}(x) dx
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{Y} = p_{X} \frac{d x_{0}}{d y_{0}} = \frac{p_{X}}{\frac{d y_{0}}{d x_{0}}}
+	\end{equation}
+	\textbf{Lineare Transformation $Y = aX + b$}
+	\begin{equation} \textstyle
+			p_{Y} = p_{X}\left( \frac{y-b}{a} \right) \frac{1}{|a|}
+	\end{equation}
+	\subsection{Summe von Zufallsvariablen}
+	\textbf{$Z = X+Y$, wobei X und Y statistisch Unabhängig sein müssen:}
+	\begin{equation} \textstyle
+		p_{Z} = \int_{- \infty}^{\infty} p_{X}(\alpha)p_{Y}(z-\alpha) d \alpha = p_{X}(z) \ast p_{Y}(z)
+	\end{equation}
+	\textbf{Beweis}
+	Aus $Z = X+Y$ wird $Y = Z-X$, und damit ist das Ereignis $(Z \leq a)$ identisch mit dem Verbundereignis ($Y \leq a - X$ und $- \infty \leq X \leq \infty )$. Für die Verteilungsfunktion $P(Z \leq a)$ gilt:
+	\begin{equation} \textstyle
+	P(Z \leq a) = P(X \leq \infty, Y \leq a -X) = F_{Z}(a) = \int_{x = - \infty}^{\infty} p_{XY}(x,a-x) dx
+	\end{equation}
+	Für die VDF folgt
+	\begin{equation} \textstyle
+	p_{z}(a) = \frac{F_{z}(a)}{da} = \int_{- \infty}^{\infty} p_{XY}(x,a-x) dx
+	\end{equation}
+	, die bei statistischer Unabhängigkeit zu
+	\begin{equation} \textstyle
+	p_{z}(a) = \int_{X} p_{X}(x)p_{Y}(a-x)dx = p_{X}(a) \ast p_{Y}(a)
+	\end{equation}
+	\subsection{Erwartungswerte}
+	Der Erwartungswert E[(x)] einer transformierten Zufallsvariablen Y = g(X) ist definiert als
+	\begin{equation} \textstyle
+		E[g(x)] = \int_{- \infty}^{\infty} g(x) p_{X}(x) dx
+	\end{equation}
+	\textbf{Mittelwert}
+	\begin{equation} \textstyle
+		\mu_{x} = E[X] = \int_{- \infty}^{\infty} x p_{X}(x) dx
+	\end{equation}
+	\textbf{Quadratischer Mittelwert (Leistung)}
+	\begin{equation} \textstyle
+		P_{X} = E[X^{2}] = \int_{- \infty}^{\infty} x^{2} p_{X}(x) dx 
+	\end{equation}
+	\textbf{Varianz}
+	\begin{equation} \textstyle
+		\sigma_{X}^{2} = E[(X-\mu_{X})^{2}] = \int_{- \infty}^{\infty} (x-\mu_{X})^{2} p_{X}(x) dx
+	\end{equation}
+	Aus dieser Gleichung folgt auch
+	\begin{equation} \textstyle
+		\sigma_{X}^{2} = P_{X} - \mu_{X}^{2}
+	\end{equation}
+	\subsection{Erwartungswerte für wertdiskrete Zufallsvariablen}
+	\begin{equation} \textstyle
+		p_{X} = \sum_{k=1}^{N} P_{k} \delta(x-x_{k})
+	\end{equation}
+	\textbf{Mittelwert}
+	\begin{equation} \textstyle
+		\mu_{X} = E[X] = \sum_{k=1}^{N} P_{k} x_{k}
+	\end{equation}
+	\textbf{Quadratischer Mittelwert (Leistung)}
+	\begin{equation} \textstyle
+		\mu_{X} = E[X^{2}] = \sum_{k=1}^{N} P_{k} x_{k}^{2}
+	\end{equation}
+	\textbf{Varianz}
+	\begin{equation} \textstyle
+		\sigma_{X}^{2} = E[(X-\mu_{X})^{2}] = \sum_{k=1}^{N} P_{k} (x_{k}-\mu_{X})^{2}
+	\end{equation}
+	\subsection{Schätsgrößen für Erwartungswerte}
+	\begin{equation} \textstyle
+		m_{X} = \frac{1}{N} \sum_{n = 0}^{N - 1}x(n)
+	\end{equation}
+\end{document} 
