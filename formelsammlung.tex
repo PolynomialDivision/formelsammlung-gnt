@@ -471,6 +471,55 @@
 	\end{equation}
 	Wenn sie \textbf{nicht} miteinander korreliert sind
 	\begin{equation} \textstyle
-		R_{ZZ}(k) = R_{XX}(k) + R_{YY}(k)
+		R_{ZZ}(k) = R_{XX}(k) + R_{YY}(k), \hspace{0.5cm} P_{Z} = P_{X} + P_{Y}
+	\end{equation}
+	\subsection{Leistungsdichtespektrum}
+	\begin{equation} \textstyle
+		S_{XX}(\Omega) = \sum_{k=- \infty}^{\infty} R_{XX}(k) e^{-j k \Omega}
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{XX}(k) = \frac{1}{2\pi} \int_{- \pi}^{\pi} e^{j k \Omega} d \Omega
+	\end{equation}
+	\textbf{Eigenschaften}
+	\begin{equation} \textstyle
+		S_{XX}(\Omega) = S_{XX}(- \Omega)
+	\end{equation}
+	\begin{equation} \textstyle
+		S_{XX}(\Omega) = S_{XX}^{*}(\Omega)
+	\end{equation}
+	\begin{equation} \textstyle
+		S_{XX}(\Omega) \geq 0
+	\end{equation}
+	\begin{equation} \textstyle
+		P_{X} = R_{XX}(0) = \frac{1}{2\pi} \int_{- \pi}^{\pi} S_{XX}(\Omega) d\Omega
+	\end{equation}
+	\begin{equation} \textstyle
+		P_{X}(\Omega_{1}, \Omega_{2}) =  \frac{1}{\pi} \int_{\Omega_{1}}^{\Omega_{2}} S_{XX}(\Omega) d\Omega
+	\end{equation}
+	\textbf{Weiﬂes Rauschen}
+	\begin{equation} \textstyle
+		R_{WW}(k) = \sigma_{W}^{2} \delta(k)
+	\end{equation}
+	\begin{equation} \textstyle
+		S_{WW}(\Omega) = \sigma_{W}^{2}
+	\end{equation}
+	\textbf{Kreuz-LDS}
+	\begin{equation} \textstyle
+		S_{XY}(j\Omega) := \sum_{- \infty}^{\infty} R_{XY} e^{-jk\Omega}
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{XY}(k) = \frac{1}{2 \pi} \int_{- \pi}^{\pi} S_{XY}(j\Omega) e^{jk\Omega} d\Omega
+	\end{equation}
+	\textbf{Eigenschaften Kreuz LDS}
+	\begin{equation} \textstyle
+		S_{XY}(j\Omega) = S_{YX}(-j\Omega)
+	\end{equation}
+	\textbf{FORUM NACHGUCKEN!!!}
+	\begin{equation} \textstyle
+		S_{XY}(j\Omega) = S_{YX}^{*}(j\Omega)
+	\end{equation}
+	\subsection{Maﬂ spektraler Konstanz (MSK)}
+	\begin{equation} \textstyle
+		\gamma_{X}^{2} = \frac{e^{\frac{1}{2\pi}\int_{-\infty}^{\infty}\ln S_{XX}(\Omega)d\Omega}}{\sigma_{X}^{2}}
 	\end{equation}
 \end{document}
