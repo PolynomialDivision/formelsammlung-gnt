@@ -6,7 +6,7 @@
 \usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry} %Anpassung der Seitenränder
 %\pagestyle{headings}
 \begin{document}
-	\begin{center}\huge Formelsammlung DSAV\par\bigskip\large\today\end{center}%Dann eben nicht als Titel sondern manuell
+	\begin{center}\huge Formelsammlung GNT\par\bigskip\large\today\end{center}%Dann eben nicht als Titel sondern manuell
 	\section{Ergebnismenge}
 	\begin{equation} \textstyle
 	\Omega = \{ \omega : \omega_{1}, \omega_{2}, ..., \omega_{K} \}
@@ -290,4 +290,187 @@
 	\begin{equation} \textstyle
 		m_{X} = \frac{1}{N} \sum_{n = 0}^{N - 1}x(n)
 	\end{equation}
-\end{document} 
+	\begin{equation} \textstyle
+		E[M_{X}] = \frac{1}{M} \sum_{j = 1}^{M} \mu_{X} = \frac{1}{M}M \cdot \mu_{X} = \mu_{X}
+	\end{equation}
+	\begin{equation} \textstyle
+		\lim_{N \rightarrow \infty} E[(M_{X} - \mu_{X})^{2}] = 0
+	\end{equation}
+	\begin{equation} \textstyle
+		\sigma^{2}(m_{X}) = \frac{\sigma_{X}^{2}}{M}
+	\end{equation}
+	\textbf{Varianz}
+	\begin{equation} \textstyle
+		s_{X}^{2} = \frac{1}{N - 1} \sum_{n = 0}^{N - 1} [x(n) - m_{X}]^{2}
+	\end{equation}
+	\begin{equation} \textstyle
+		E[S_{X}^{2}] = \sigma_{X}^{2} \hspace{0.5cm} ; \hspace{0.5cm} \sigma(S_{X}^{2}) = \frac{2\sigma_{X}^{2}}{N - 1}
+	\end{equation}
+	\subsection{Schätsgrößen für Erwartungswerte}
+	\begin{equation} \textstyle
+	E[Z] = \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} g(x,y) p_{XY}(x,y) dx dy
+	\end{equation}
+	Mit $Z = X+Y$, $Z = (X+Y)^{2}$, $Z = XY$, ergeben sich die folgenden Ergebnisse:
+	\textbf{Addition von Zufallsvariablen}
+	\begin{equation} \textstyle
+		E[X+Y] = E[X] + E[Y]
+	\end{equation}
+	\textbf{Multiplikation von Zufallsvariablen}
+	\begin{equation} \textstyle
+		E[XY] = E[X] \cdot E[Y], \hspace{0.5cm} \text{ bei statist. Unabhängigkeit}
+	\end{equation}
+	\textbf{Multiplikation von Zufallsvariablen}
+	\begin{equation} \textstyle
+		E[(X+Y)^{2}] = P_{Z} = P_{X} + P_{Y} + 2 E[XY]
+	\end{equation}
+	\begin{equation} \textstyle
+		\sigma_{Z}^{2} = \sigma_{X}^{2} + \sigma_{Y}^{2} \text{ bei statis. Unabhängigkeit}
+	\end{equation}
+	\textbf{Kovarianz}
+	\begin{equation} \textstyle
+		C_{XY} = E[(X - \mu_{X}) (Y - \mu_{Y})]
+	\end{equation}
+	\textbf{Kreuzkorrelationskoeffizient}
+	\begin{equation} \textstyle
+		p_{XY} = \frac{C_{XY}}{\sigma_{X} \sigma_{Y}}
+	\end{equation}
+	\textbf{Keine Korrelation}
+	\begin{equation} \textstyle
+		C_{XY} = 0
+	\end{equation}
+	\textbf{Orthogonak zueinander}
+	\begin{equation} \textstyle
+		E[XY] = 0
+	\end{equation}
+	Unkorreliertheit ist eine sehr viel schwächere Forderung als statistische Unabhängigkeit, da bei der letztern
+	\begin{equation} \textstyle
+		p_{XY}(x,y) = p_{X}(x) \cdot p_{Y}(y)
+	\end{equation}
+	f+r jedes $x$ und $y$ gelten muss, während $p_{XY}$ bei Unkorreliertheit unter einem Integral steht.
+	\section{Stochastische Prozesse}
+	\subsection{Eigenschaften}
+	\begin{itemize}
+		\item Stationär: TODO
+		\item Ergodizität: TODO
+	\end{itemize}
+	\subsection{Ordnungen}
+	\textbf{Verteilung erster Ordnung:} Für einen beliebigen Zeitpunkt $i$ und einen vorgegebenen Zahlenwert $\alpha$ beschreibt die Verteilungsfunktion die Verteilung der Amplitudenwerte im Ensemble:
+	\begin{equation} \textstyle
+		F_{X}(\alpha;i) = P(X(i) \leq \alpha)
+	\end{equation}
+	Für unterschiedlichste Zeitpunkte $i$ können die Verteilungsfunktion verschieden sein.\\
+	\textbf{Verteilung zweiter Ordnung:} Für zwei beliebige Zeitpunkte $i$ und $j$ und zwei vorgegebene Zahlenwerten $\alpha$ und $\beta$ beschreibt die Verbundverteilungsfunktion den Zusammenhang zwischen den zu diesen Zeitpunkten auftretenden Amplitudenwerten:
+	\begin{equation} \textstyle
+	F_{X}(\alpha,\beta;i,j) = P(X(i) \leq \alpha; X(j) \leq \beta)
+	\end{equation}
+	\textbf{Verteilung dritter Ordnung:} Für drei beliebige Zeitpunkte $i$, $j$ und $k$ und drei vorgegebene Zahlenwerten $\alpha$, $\beta$ und $\gamma$ beschreibt die Verbundverteilungsfunktion den Zusammenhang zwischen den zu diesen Zeitpunkten auftretenden Amplitudenwerten:
+	\begin{equation} \textstyle
+	F_{X}(\alpha,\beta,\gamma;i,j,k) = P(X(i) \leq \alpha; X(j) \leq \beta; X(k) \leq \gamma)
+	\end{equation}
+	\textbf{Verallgemeinerung:} Ist die Beschreibung für die Verteilungsfunktionen beliebiger Ordnung bekannt, so ist der stochastische Prozess $\{ X(n) \}$ eindeutig beschrieben. Anstatt der Verbundverteilungsfunktionen können auch die Verbundverteilungsdichtefunktionen
+	\begin{equation} \textstyle
+		p_{X}(\alpha,\beta,\gamma,...;i,j,k,...)
+	\end{equation}
+	verwendet werden. Durch sie können die Wahrscheinlichkeiten
+	\begin{equation} \textstyle
+		p_{X}(\alpha,\beta,\gamma,...;i,j,k,...) d\alpha d\beta d\gamma
+	\end{equation}
+	angegeben werden, also die Wahrscheinlichkeiten, dass die Musterfolgen im Zeitpunkt $i$ Werte zwischen $\alpha$ und $\alpha + \delta \alpha$, im Zeitpunkt $j$ Werte zwischen $\beta$ und $\beta + \delta \beta$, im Zeitpunkt $k$ Werte zwischen $\gamma$ und $\gamma + \delta \gamma$ annehmen, etc.
+	\subsection{Erwartungswerte eines stochatischen Prozesses}
+	\textbf{Arithmetischer Mittelwert}
+	\begin{equation} \textstyle
+		\mu_{X}(n) := E[X(n)]
+	\end{equation}
+	Ist der Prozess stationär, so ist der Mittelwert unabhängig von dem absoluten Zeitpunkt n:
+	\begin{equation} \textstyle
+		\mu_{X} := E[X(n)]
+	\end{equation}
+	\textbf{Autokorrelationsfolge}
+	\begin{equation} \textstyle
+		R_{XX}(i,j) := E[X(i)X(j)] := \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} \alpha \beta p_{X}(\alpha,\beta;i,j)d\alpha d\beta
+	\end{equation}
+	Ist der Mittlwert nur von der Zeitdifferent $k = j - i$ abhängig (also nicht von der absoluten Zeit $i$), so
+	\begin{equation} \textstyle
+		R_{XX}(n,n+k) := R_{XX}(k) := E[X(n)X(n+k)] := \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} \alpha \beta p_{X}(\alpha,\beta;k)d\alpha d\beta
+	\end{equation}
+	\textbf{Autokovarianzfolge}
+	\begin{equation} \textstyle
+		C_{XX}(k) = E[(X(n) - \mu_{X}) ( X(n+k) - \mu_{X} )]
+	\end{equation}
+	Beschreibt die AKF des vom arithmetischen Mittelwert befreiten stochastischen Prozess $\{ X(n) \}$. Für mittelwertfreie Prozesse sind $R_{XX}(k)$ und $C_{XX}(k)$ identisch.\\
+	\textbf{AKF Eigenschaften}
+	\begin{equation} \textstyle
+		R_{XX}(k) = R_{XX}(-k)
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{XX}(0) = P_{X}
+	\end{equation}
+	\begin{equation} \textstyle
+		- R_{XX}(0) \leq  R_{XX}(k) \leq R_{XX}(0)
+	\end{equation}
+	Ist der Prozess nicht mittelwertfrei, so ist
+	\begin{equation} \textstyle
+		R_{XX}(0) = P_{X} = \sigma_{X}^{2} + \mu_{X}^{2}
+	\end{equation}
+	\begin{equation} \textstyle
+		\lim R_{XX}(k) = 0
+	\end{equation}
+	\begin{equation} \textstyle
+		p_{XX}(k) = \frac{R_{XX}(k)}{R_{XX}(0)}
+	\end{equation}
+	\begin{equation} \textstyle
+	-1 \leq p_{XX}(k) \leq 1
+	\end{equation}
+	Kurzschreibweise
+	\begin{equation} \textstyle
+		p_{XX}(k) = p(k)
+	\end{equation}
+	\textbf{Autokorrelationsmatrix $R_{XX}$}
+	\begin{equation} \textstyle
+		\mathbf{R_{XX}} =
+		 \begin{bmatrix}
+		R_{XX}(0) & R_{XX}(1) & R_{XX}(2) & ... & R_{XX}(N-1)\\
+		R_{XX}(1) & R_{XX}(0) & R_{XX}(1) & ... & R_{XX}(N-2)\\
+		.. & ... & ... & ... & ...\\
+		R_{XX}(N-1) & R_{XX}(N-2) & R_{XX}(1) & ... & R_{XX}(0)\\
+		\end{bmatrix}
+	\end{equation}
+	\begin{equation} \textstyle
+		|R_{XX}(k)| \geq 0
+	\end{equation}
+	\subsection{Kreuzkorrelationsfolgen}
+	\begin{equation} \textstyle
+		R_{XY}(i,j) := E[X(i)Y(j)] := \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} \alpha \beta p_{XY}(\alpha,\beta;i,j)d\alpha d\beta
+	\end{equation}
+	Nur von der Zeitdifferenz abhängig...
+	\begin{equation} \textstyle
+		R_{XY}(n,n+k) := R_{XX}(k) := E[X(n)Y(n+k)] := \int_{- \infty}^{\infty} \int_{- \infty}^{\infty} \alpha \beta p_{XY}(\alpha,\beta;k)d\alpha d\beta
+	\end{equation}
+	\textbf{Eigenschaften KKF}
+	\begin{equation} \textstyle
+		R_{XY}(k) = R_{YX}(-k)
+	\end{equation}
+	\begin{equation} \textstyle
+		R_{XY}^{2}(k) \leq R_{XX}(0) R_{YY})(0)
+	\end{equation}
+	\textbf{Unkorreliert}
+	\begin{equation} \textstyle
+		R_{XY}(k) = \mu_{X} \cdot \mu_{Y}, \hspace{0.5cm} \forall k
+	\end{equation}
+	\textbf{Statistische Unabhängigkeit}
+	\begin{equation} \textstyle
+		p_{XY}(\alpha,\beta;k) = p_{X}(\alpha;k)  \cdot p_{Y}(\beta;k)
+	\end{equation}
+	\textbf{Orthogonalität}
+	\begin{equation} \textstyle
+		R_{YX}(k) := 0; \hspace{0.5cm} \forall k
+	\end{equation}
+	\textbf{Addition von Zufallsvariable $Z(n) = X(n) + Y(n)$}
+	\begin{equation} \textstyle
+		R_{ZZ}(k) = R_{XX}(k) + R_{YY}(k) + R_{XY}(k) + R_{YX}(k)
+	\end{equation}
+	Wenn sie \textbf{nicht} miteinander korreliert sind
+	\begin{equation} \textstyle
+		R_{ZZ}(k) = R_{XX}(k) + R_{YY}(k)
+	\end{equation}
+\end{document}
