@@ -699,4 +699,109 @@
 	\end{equation}
 	Vielleicht weißes rauschen Seite 67\\
 	\textbf{Noch Seite 69/70}
+	\section{Störreduktion}
+	\subsection{Schätzung einer Zufallsvariablen}
+	\textbf{Schätzung einer Zufallsvariable durch eine Konstante}
+	Ziel ist es die Varianz $\sigma_{R}^{2}$ des Fehlers $R = X - a$ zu minieren:
+	\begin{equation} \textstyle
+			\sigma_{R}^{2} = E[(X-a)^{2}]
+	\end{equation}
+	\textbf{Schätzung einer Zufallsvariable durch eine andere Zufallsvariable Y}
+	\begin{equation} \textstyle
+		\sigma_{R}^{2} = E[(X-\hat{X})^{2}] = E[(X-aY)^{2}]
+	\end{equation}
+	Die Ableitung nach a
+	\begin{equation} \textstyle
+		a_{opt} = \frac{E[XY]}{\sigma_{Y}^{2}} = \frac{R_{XY}(0)}{\sigma_{Y}^{2}} = \frac{\sigma_{X}}{\sigma_{Y}} \cdot p_{XY}
+	\end{equation}
+	\textbf{Orthogonalitätsprinzip}\\
+	Y muss orthogonal zu dem Schätzfehler $R_{opt} = X - \hat{X}$ sein
+	\begin{equation} \textstyle
+		E[Y(X-a_{opt}Y)] = E[Y(X-\hat{X}_{opt})] = 0
+	\end{equation}
+	\subsection{Rauschreduktion durch zeitliches Überlagern}
+	S. 76
+	\subsection{Optimale Prä-Deemphase-Systeme}
+	\textbf{TODO Bild einfügen}\\
+	Bei einer verzerrunfsfreien Übertragung muss gelten:
+	\begin{equation} \textstyle
+		A_{S}(\Omega) \cdot A_{E}(\Omega) = 1 = const
+	\end{equation}
+	Lineare Phase
+	\begin{equation} \textstyle
+		\varphi_{S}(\Omega) + \varphi_{E}(\Omega) = - \Omega t_{d}
+	\end{equation}
+	\begin{equation} \textstyle
+		|H_{E}(j\Omega)|^{2} = |H_{S}(j\Omega)|^{-2}
+	\end{equation}
+	\begin{equation} \textstyle
+		P_{aus} = \frac{1}{2 \pi} \int_{- \pi}^{\pi} S_{XX}(\Omega) d\Omega
+	\end{equation}
+	\textbf{Störleistung}
+	\begin{equation} \textstyle
+		P_{N,aus} = \frac{1}{2 \pi} \int_{- \pi}^{\pi} S_{NN}(\Omega) |H_{E}(j\Omega)|^{2} d\Omega
+	\end{equation}
+	\textbf{SNR}
+	\begin{equation} \textstyle
+		SNR = \frac{P_{ein}}{P_{N,aus}} = \frac{\frac{1}{2 \pi} \int_{- \pi}^{\pi} S_{XX}(\Omega) d\Omega}{\frac{1}{2 \pi} \int_{- \pi}^{\pi} S_{NN}(\Omega) |H_{E}(j\Omega)|^{2} d\Omega}
+	\end{equation}
+	\begin{equation} \textstyle
+	P_{Sender} = \frac{1}{2 \pi} \int_{- \pi}^{\pi} S_{XX}(\Omega) |H_{S}(j\Omega)|^{2} d\Omega
+	\end{equation}
+	\begin{equation} \textstyle
+	V_{A} = 2\pi \frac{P_{Sender}  \int_{- \pi}^{\pi} S_{XX}(\Omega) d\Omega}{\int_{- \pi}^{\pi} S_{XX}(\Omega) |H_{S}(j\Omega)|^{2} d\Omega \cdot \int_{- \pi}^{\pi} S_{XX}(\Omega) |H_{E}(j\Omega)|^{2} d\Omega}
+	\end{equation}
+	\textbf{Cauchy-Schwarze Ungleichung}
+	\begin{equation} \textstyle
+		\int a^{2}(t) dt \cdot \int b^{2}(t) dt \geq \left| \int a(t) b(t) \right|^{2}
+	\end{equation}
+	... S. 81
+	\begin{equation} \textstyle
+		|H_{S}(j\Omega)|^{2} = \sqrt{\frac{S_{NN}(\Omega)}{S_{XX}(\Omega)}}
+	\end{equation}
+	\begin{equation} \textstyle
+		|H_{SE}(j\Omega)|^{2} = \sqrt{\frac{S_{XX}(\Omega)}{S_{NN}(\Omega)}}
+	\end{equation}
+	\begin{equation} \textstyle
+		\max{\{SNR\}} = \frac{P_{Sender} P_{ein}}{\frac{1}{2 \pi} \left[ \int_{- \pi}^{\pi} \sqrt{S_{XX}(\Omega) S_{NN}(\Omega)} d\Omega \right]^{2}}
+	\end{equation}
+	\subsection{Wiener - Kologoroff - Filterung}
+	\begin{itemize}
+		\item Rauschbefreiung gestörter Nachrichtensignale
+		\item Entzerrung von nachrichtensignalen
+		\item Echobrefreiung von Nachrichtensignalen
+		\item Vorhersage von Nachrichtensignalen (Prädiktion)
+	\end{itemize}
+	\textbf{TODO: ADD BILD!}
+	Es muss der mittlerer quadratische Fehler (Leistung) minimiert werden
+	\begin{equation} \textstyle
+		\sigma_{r}^{2} = E[\{X(n) - Z(n)\}^{2}]
+	\end{equation}
+	\begin{equation} \textstyle
+		z(n) = \sum_{k \in I} h_{k} y(n-k)
+	\end{equation}
+	\begin{equation} \textstyle
+		z(n) = \mathbf{h^{T}y}
+	\end{equation}
+	\textbf{Indexmengen}
+	\begin{itemize}
+		\item $I=[0,N]$: Endliches kausales WK-Filter.
+		\item $I=[0,\infty]$: Kausales WK-Filter.
+		\item $I=[-M,N]$: Endliches WK-Filter mit Verzögerung.
+		\item $I=[-\infty,\infty]$: Nichtkausales WK-Filter.
+	\end{itemize}
+	\subsection{Optimierung des WK-Filters (S. 86)}
+	\begin{equation} \textstyle
+		\sigma_{R}^{2} = E\left[ \left\{ X(n) - \sum_{k \in I} h_{k} Y(n-k) \right\}^{2} \right]
+	\end{equation}
+	\begin{equation} \textstyle
+	E\left[ \left\{ X(n) - Z_{opt}(n) \right\} Y(n-k)  \right] = 0; k \in I
+	\end{equation}
+	\textbf{Wiener-Hopf-Bedingung}
+	\begin{equation} \textstyle
+		R_{XY}(k) = R_{YZ_{opt}}(k); k \in I
+	\end{equation}
+	\begin{equation} \textstyle
+		E\left[ \left\{ X(n) - Z_{opt}(n) \right\} Z_{opt}(n) \right] = 0
+	\end{equation}
 \end{document}
