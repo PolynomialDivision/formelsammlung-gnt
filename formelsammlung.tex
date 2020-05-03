@@ -969,7 +969,8 @@
 	\end{equation}
 	\textbf{Orthogonalitätsprinzip}
 	Beim Orthogonalitätsprinzip, wird die Fehlervarianz $\sigma_{R}^{2} = E[(Y-\hat{Y})^{2}]$ zum Minimum $\sigma_{R}^{2} = \min\{ \sigma_{R}^{2} \}$\\
-	Bei optimaler Wahl der Parameter $a_{k} = a_{k,opt}$ für alle $k$ ist der Fehler $R$orthogonal zu jeder der zur Schätzung herangezogenen ZV $X_{k}$
+	Bei optimaler Wahl der Parameter $a_{k} = a_{k,opt}$ für alle $k$ ist der Fehler $R$
+orthogonal zu jeder der zur Schätzung herangezogenen ZV $X_{k}$
 	\begin{equation} \textstyle
 		E[R \cdot X_{j}] = 0 = E\left[ (Y - \sum_{k=1}^{K} a_{k,opt} X_{k}) X_{j} \right]
 	\end{equation}
@@ -1017,4 +1018,28 @@
 		\min \{ \sigma_{R}^{2} \} = \sigma_{Y}^{2} - \underline{r}_{YX}^{T} \cdot \underline{R}_{XX}^{-1} \cdot \underline{r}_{YX}
 	\end{equation}
 	Es lässt sich der minimale Fehler bestimmen ohne die Schätzparameter zu bestimmen!
+	
+	
+	\section{Matrix}
+	\textbf{Symmetrische Matrix}
+	\begin{equation} \textstyle
+		M^{T} = M
+	\end{equation}
+	\textbf{Transponierung Multiplikation}
+	\begin{equation} \textstyle
+		(A \cdot B)^T = B^T \cdot A^T
+	\end{equation}
+	Inverse 2x2 Matrix
+	\begin{equation} \textstyle
+		\begin{bmatrix}
+		a & b\\
+		c & d\\
+		\end{bmatrix}
+		= 
+		\frac{1}{ad-bc}
+		\begin{bmatrix}
+		d & -b\\
+		-c & a\\
+		\end{bmatrix}
+	\end{equation}
 \end{document}
