@@ -880,26 +880,26 @@
 	\begin{equation} \textstyle
 		R_{XX}(j) = \sum_{k=1}^{N} h_{k,opt} R_{XX}(j-k); \hspace{0.5cm} j=1,2,...,N
 	\end{equation}
-		\begin{equation} \textstyle
-	\begin{bmatrix}
-	R_{XX}(0) & R_{XX}(1) & ... & R_{XX}(N-1)\\
-	R_{XX}(1) & R_{XX}(0) & ... & R_{XX}(N)\\
-	.. & ... & ... & ... & ...\\
-	R_{XX}(N-1) & R_{XX}(N-2) & ... & R_{XX}(0)\\
-	\end{bmatrix}
-	\begin{bmatrix}
-	h_{1,opt} \\
-	h_{2,opt} \\
-	... \\
-	h_{N,opt} \\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-	R_{XX}(1) \\
-	R_{XX}(2) \\
-	... \\
-	R_{XX}(N) \\
-	\end{bmatrix}
+	\begin{equation} \textstyle
+		\begin{bmatrix}
+		R_{XX}(0) & R_{XX}(1) & ... & R_{XX}(N-1)\\
+		R_{XX}(1) & R_{XX}(0) & ... & R_{XX}(N)\\
+		.. & ... & ... & ... & ...\\
+		R_{XX}(N-1) & R_{XX}(N-2) & ... & R_{XX}(0)\\
+		\end{bmatrix}
+		\begin{bmatrix}
+		h_{1,opt} \\
+		h_{2,opt} \\
+		... \\
+		h_{N,opt} \\
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+		R_{XX}(1) \\
+		R_{XX}(2) \\
+		... \\
+		R_{XX}(N) \\
+		\end{bmatrix}
 	\end{equation}
 	\textbf{Minimale Fehlervarianz}
 	\begin{equation} \textstyle
@@ -912,4 +912,109 @@
 	\begin{equation} \textstyle
 		\max{\{G_{P}\}} = G_{P}(\infty) = \gamma_{X}^{-2}
 	\end{equation}
+	\section{Bayes}
+	\subsection{Satz von Bayes}
+	\begin{equation} \textstyle
+		P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+	\end{equation}
+	\begin{equation} \textstyle
+		P(\omega_{j} | x) = \frac{p(x|\omega_{j}) \cdot P(\omega_{j})}{p(x)}
+	\end{equation}
+	\textbf{posterior:} the probability of the state of nature being $\omega_{j}$ given that the feature value $x$ has been measured\\
+	\textbf{likelihood:} $p(x|\omega_{j})$ is the likelihood of $\omega_{j}$ with respect to $x$. The category $\omega_{j}$, for which $p(x|\omega_{j})$ is large is more "likely" to be true category\\
+	\textbf{prior:} scale factor\\
+	\textbf{evidence:} scale factor\\
+	\begin{equation} \textstyle
+		\text{posterior} = \frac{\text{likelihood} \cdot \text{prior}}{\text{evidence}}
+	\end{equation}	
+	Ein Modell $M$ sollmit einem Datensatz $D$ untersucht werden. Die Ausgangsfragestellung ist, wie die Wahrscheinlichkeiten für die Modellparameter $M$ verteilt sind, sofern die Daten $D$ gegeben sind. Es soll also ein Ausdruck für $P(M|D)$ gefunden werden.\\
+	\begin{equation} \textstyle
+		P(M|D) = \frac{P(D|M)P(M)}{P(D)}
+	\end{equation}
+	\begin{itemize}
+		\item $P(M)$: A-priori-Wahrscheinlichkeit: Also die Wahrscheinlichkeitsverteilung für $M$, ohne die Messdaten $D$
+		\item $P(M|D)$: A-posteriori-Wahrscheinlichkeit: Also die Wahrscheinlichkeitsverteilung für $M$, mit den Messdaten $D$
+		\item $P(D|M)$: Likelihood: Auch inverse Wahrscheinlichkeit oder "Plausabilität" genannt. Die Wahrscheinlichkeitverteilung für die Messdaten $D$, wenn der Modellparameter $M$ gegeben ist
+	\end{itemize}
+	\textbf{Durchschnittliche Risiko $R(\tau)$}\\
+	Das Risiko einer Entscheidungsregel $\alpha(x)$ ist das Integral über das bedingte Risiko dieser Regel gegeben eines Messwertes
+	\begin{equation} \textstyle
+		R(\alpha(x)) = \oint R(\alpha(x)|x)  p_{X}(x) dx
+	\end{equation}
+	Das bedingte Risiko ist das mittlere bedingte Risiko je Aktion
+	\begin{equation} \textstyle
+		R(\alpha(x)|x) = \sum_{\forall i} R(\alpha_{i}|x)  P(\alpha_{i}|x) dx
+	\end{equation}
+	Das mittlere bedingte Risiko je Aktion wiederum ist das Mittel der Kosten unter dem Wissen des wahren state-of-nature
+	\begin{equation} \textstyle
+		R(\alpha_{i}|x)  = \sum_{\forall j} \lambda(\alpha_{i}|\omega_{j}) P(\omega_{j}|x)
+	\end{equation}
+	\textbf{Diskriminanzfunktion $g(x)$}
+	\begin{equation} \textstyle
+		g_{1}(x) = p(x|\omega = 1) \cdot P(\omega = 1)
+	\end{equation}
+	\begin{equation} \textstyle
+		g_{2}(x) = p(x|\omega = 2) \cdot P(\omega = 2)
+	\end{equation}
+	\subsection{Optimale Schätzung}
+	Kann mit Mittelwert der Dichtefunktion oder MAP bestimmt werden.
+	\textbf{Mittelwert der Dichtefunktion}\\
+	\begin{equation} \textstyle
+		\hat{Y}_{\mu} = E[p(y|X_{1} = 1, X_{2} = x_{2}, ..., X_{k} = x_{k})]
+	\end{equation}
+	\textbf{Maximum A-posteriori (MAP)}
+	Bei einer diskreten ZV $Y$ ist die MAP-Schätzung $\underline{x} \rightarrow \hat{Y}$ also identisch mit der Bayesschen Entscheidung!
+	\begin{equation} \textstyle
+		\hat{Y}_{MAP} = \arg \max_{y_{i}}\{ P({y_{1}}|\underline{x}), P({y_{2}}|\underline{x}), ..., P(y_{M}|\underline{x})) \}
+	\end{equation}
+	\textbf{Orthogonalitätsprinzip}
+	Beim Orthogonalitätsprinzip, wird die Fehlervarianz $\sigma_{R}^{2} = E[(Y-\hat{Y})^{2}]$ zum Minimum $\sigma_{R}^{2} = \min\{ \sigma_{R}^{2} \}$\\
+	Bei optimaler Wahl der Parameter $a_{k} = a_{k,opt}$ für alle $k$ ist der Fehler $R$orthogonal zu jeder der zur Schätzung herangezogenen ZV $X_{k}$
+	\begin{equation} \textstyle
+		E[R \cdot X_{j}] = 0 = E\left[ (Y - \sum_{k=1}^{K} a_{k,opt} X_{k}) X_{j} \right]
+	\end{equation}
+	\begin{equation} \textstyle
+		E[Y \cdot X_{j}] = \sum_{k=1}^{K} a_{k,opt} E[X_{k}X_{j}], \hspace{0.5cm} \text{für } j=1,...,K
+	\end{equation}
+	\begin{equation} \textstyle
+	\begin{bmatrix}
+		E[Y \cdot X_{1}] \\
+		E[Y \cdot X_{2}] \\
+		... \\
+		E[Y \cdot X_{k}] \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		E[X_{1}X_{1}] &E[X_{1}X_{2}] & ... & E[X_{1}X_{K}]\\
+		E[X_{2}X_{1}] & E[X_{2}X_{2}] & ... & E[X_{2}X_{k}]\\
+		.. & ... & ... & ... & ...\\
+		E[X_{K}X_{1}] & E[X_{K}X_{2}] & ... & E[X_{K}X_{K}]\\
+		\end{bmatrix}
+		\begin{bmatrix}
+		a_{1,opt} \\
+		a_{2,opt} \\
+		... \\
+		a_{K,opt} \\
+		\end{bmatrix}
+	\end{equation}
+	\begin{equation} \textstyle
+		\underline{r}_{YX} = \underline{R}_{XX} \cdot a_{opt}
+	\end{equation}
+	\begin{equation} \textstyle
+		 a_{opt} = \underline{R}_{XX}^{-1} \cdot \underline{r}_{YX}
+	\end{equation}
+	\textbf{Schätzfehler}
+	\begin{equation} \textstyle
+		\min{ \{ \sigma_{R}^{2} \} } = E[ ( Y - \sum_{k=1}^{K} a_{k,opt} \cdot X_{k} )^{2	}  ]
+	\end{equation}
+	\begin{equation} \textstyle
+		\min{ \{ \sigma_{R}^{2} \} } = E[ (Y - \underline{a}_{opt}^{T} \cdot \underline{X})^{2} ]
+	\end{equation}
+	\begin{equation} \textstyle
+		\min \{ \sigma_{R}^{2} \} = \sigma_{Y}^{2} - \underline{a}_{opt}^{T} \cdot \underline{r}_{YX}
+	\end{equation}
+	\begin{equation} \textstyle
+		\min \{ \sigma_{R}^{2} \} = \sigma_{Y}^{2} - \underline{r}_{YX}^{T} \cdot \underline{R}_{XX}^{-1} \cdot \underline{r}_{YX}
+	\end{equation}
+	Es lässt sich der minimale Fehler bestimmen ohne die Schätzparameter zu bestimmen!
 \end{document}
